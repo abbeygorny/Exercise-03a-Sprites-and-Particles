@@ -9,6 +9,10 @@ var target_position = Vector2(0,0)
 var dying = false
 
 func _ready():
+	$Select.texture = $Sprite.texture
+	$Select.scale = $Sprite.scale
+	
+	
 	pass
 
 func _physics_process(_delta):
@@ -22,3 +26,10 @@ func move_piece(change):
 
 func die():
 	dying = true;
+	
+	if selected: 
+		$Select.show()
+		$Selected.emitting = true
+	else:
+		$Select.hide()
+		$Selected.emitting = false
